@@ -1,6 +1,29 @@
 # SESSION_STATE — BraTS2026-MET
 
-_Last updated: 2026-06-04_
+_Last updated: 2026-06-16_
+
+## Update 2026-06-16 — Local eval harness BUILT (`eval_harness/`)
+Reproduces the 24 Synapse-leaderboard metrics locally so we can score every
+nnU-Net run without the daily submission limit. On branch `feature/eval-harness`
+(repo now git-initialised on `main`; codegraph initialised + indexed).
+- **Metrics**: `Lesionwise_dsc/nsd_mean_{et,tc,wt,rc}` + `Small_instance_{tp,fn,fp,f1}_{...}`.
+  Regions ET={3},TC={1,3},WT={1,2,3},RC={4}. Lesion-wise: dilation=1, 26-conn,
+  2mm³ thresh, miss→0. NSD computed at BOTH 0.5 & 1.0mm (prune after 1st anchor).
+  Small-instance: GT lesions <27mm³, any-overlap detection, F1=TP/(TP+0.5(FP+FN)).
+- **Provenance + every gap decision logged**: `eval_harness/METRIC_DECISIONS.md`
+  (✅ verified-from-source vs 🟡 our-decision-pending-anchor). 6 `ANCHOR TODO`
+  knobs to lock once we have ONE real leaderboard score.
+- **Validated by construction**: `python eval_harness/validate.py` → 24 known-answer
+  invariants all PASS. Full CLI smoke-tested end-to-end on synthetic NIfTI.
+- **Run**: `python eval_harness/run_eval.py --pred DIR --gt DIR --out outputs`
+  → per_case.csv + summary.json + console leaderboard table. Pairs by filename
+  stem, strips nnU-Net `_0000` suffix. Works on fold_0/validation/ dump unchanged.
+- Deps added to `.venv`: `surface-distance` (NSD). scipy used for 26-conn CC.
+- NOT YET done: per-epoch checkpoint hook; wiring into `inference_and_eval.sh`;
+  first real run against actual nnU-Net predictions; the leaderboard anchor.
+
+---
+_Earlier — last updated: 2026-06-04_
 
 ## Project
 BraTS 2025/2026 Brain **Metastases (MET)** challenge. Goal right now: build an
