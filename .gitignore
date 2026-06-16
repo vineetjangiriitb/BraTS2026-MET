@@ -1,0 +1,26 @@
+# Large data — never track (35+ GB on disk)
+*.zip
+*.tar.gz
+*.tar
+*.nii
+*.nii.gz
+training/
+validation/
+corrected-labels/
+runpod_results/
+brats_nnunet_raw.tar.gz
+
+# Python / venv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Codegraph local index
+.codegraph/
+
+# OS / editor
+.DS_Store
+
+# Generated eval outputs (keep code, not artifacts)
+eval_harness/outputs/
