@@ -1,1 +1,1 @@
-brats-2026-task-1-leaderboardn
+brats-2026-task-1-leaderboard
