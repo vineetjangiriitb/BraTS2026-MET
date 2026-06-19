@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BraTS 2026 Task 1 — Brain Metastases Leaderboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242736;
+    --border: #2e3347;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --accent: #6366f1;
+    --gold: #f59e0b;
+    --silver: #94a3b8;
+    --bronze: #d97706;
+    --green: #10b981;
+    --red: #ef4444;
+    --yellow: #eab308;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; }
+
+  .header { padding: 32px 24px 24px; border-bottom: 1px solid var(--border); }
+  .header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+  .header .subtitle { color: var(--muted); font-size: 0.9rem; }
+  .header .meta { margin-top: 12px; display: flex; gap: 20px; flex-wrap: wrap; }
+  .meta-item { font-size: 0.8rem; }
+  .meta-item span { color: var(--muted); }
+  .meta-item strong { color: var(--text); }
+
+  .notice { margin: 20px 24px; padding: 14px 18px; background: #1e1a0e; border: 1px solid #854d0e; border-radius: 8px; font-size: 0.82rem; line-height: 1.6; color: #fde68a; }
+  .notice strong { color: #fbbf24; }
+  .notice ul { margin-top: 6px; padding-left: 18px; }
+
+  .controls { padding: 16px 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .controls input { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 8px 12px; font-size: 0.85rem; width: 220px; outline: none; }
+  .controls input:focus { border-color: var(--accent); }
+  .controls select { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 8px 12px; font-size: 0.85rem; outline: none; }
+  .controls label { font-size: 0.82rem; color: var(--muted); }
+
+  .table-wrap { overflow-x: auto; padding: 0 24px 40px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 900px; }
+  thead th { background: var(--surface2); padding: 10px 12px; text-align: right; font-weight: 600; color: var(--muted); border-bottom: 2px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; }
+  thead th:first-child, thead th:nth-child(2), thead th:nth-child(3) { text-align: left; }
+  thead th:hover { color: var(--text); }
+  thead th.sorted { color: var(--accent); }
+  thead th .sort-arrow { margin-left: 4px; font-size: 0.7rem; }
+
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: var(--surface); }
+  tbody td { padding: 10px 12px; vertical-align: middle; }
+  tbody td:first-child { font-weight: 700; text-align: center; width: 48px; }
+  tbody td:nth-child(2) { font-weight: 600; }
+  tbody td:nth-child(3) { color: var(--muted); font-size: 0.78rem; }
+  tbody td:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .medal-1 { color: var(--gold); }
+  .medal-2 { color: var(--silver); }
+  .medal-3 { color: var(--bronze); }
+  .rank-num { font-size: 0.95rem; }
+
+  .score-cell { position: relative; }
+  .bar-bg { position: absolute; left: 0; top: 0; bottom: 0; background: rgba(99,102,241,0.12); z-index: 0; }
+  .score-val { position: relative; z-index: 1; }
+
+  .null-val { color: var(--border); }
+
+  .metric-group { border-left: 2px solid var(--border); }
+  .metric-group-rc { border-left: 2px solid #7c3aed44; }
+
+  .tier-badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; }
+
+  .legend { padding: 0 24px 24px; display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.78rem; color: var(--muted); }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  .rank-sum-col { background: rgba(99,102,241,0.07); }
+
+  .col-header-group { font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); background: var(--surface); padding: 6px 12px; text-align: center; }
+  .col-header-group.rc { color: #a78bfa; }
+  .col-header-group.si { color: var(--green); }
+
+  .n-scored { font-size: 0.75rem; color: var(--muted); }
+
+  #count { font-size: 0.82rem; color: var(--muted); margin-left: auto; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>BraTS 2026 — Task 1: Brain Metastases Segmentation</h1>
+  <div class="subtitle">Validation Leaderboard · DELPHI-style rank-sum ranking (approximated)</div>
+  <div class="meta">
+    <div class="meta-item"><span>Source: </span><strong>Synapse eval queue 9619537 · table syn74508245</strong></div>
+    <div class="meta-item"><span>Data fetched: </span><strong id="fetched-at">—</strong></div>
+    <div class="meta-item"><span>Submissions: </span><strong id="n-subs">—</strong></div>
+    <div class="meta-item"><span>Teams: </span><strong id="n-teams">—</strong></div>
+  </div>
+</div>
+
+<div class="notice">
+  <strong>⚠ Ranking methodology — what is exact vs. approximated</strong>
+  <ul>
+    <li><strong>Exact:</strong> Rank-sum over the 12 published metrics (8 lesionwise DSC/NSD for ET/TC/WT/RC + 4 small-instance F1). Higher score → better rank on each metric. Missing metrics are not penalised (not set to worst value), per the challenge rules. The best submission per team is selected by highest mean across the same 12 published ranking metrics used for the final leaderboard.</li>
+    <li><strong>Approximated / missing:</strong> The full DELPHI protocol requires <em>per-case</em> metric arrays to run 500,000 pairwise permutation tests and produce a statistical tiering (p-value upper-triangular matrix). The Synapse public API only exposes per-submission aggregate means. Statistical tiers and p-values therefore cannot be reproduced and are not shown. What you see is the rank ordering, which is the first step of DELPHI and is exact given the public data.</li>
+    <li><strong>To reproduce exact tiers:</strong> obtain per-case CSV from the challenge organizers.</li>
+  </ul>
+</div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search team…" oninput="render()"/>
+  <label>Sort by
+    <select id="sort-metric" onchange="render()">
+      <option value="rank_sum">Overall rank (rank-sum ↑ best)</option>
+      <option value="lesionwise_dsc_mean_et">DSC ET ↓</option>
+      <option value="lesionwise_nsd_mean_et">NSD ET ↓</option>
+      <option value="lesionwise_dsc_mean_tc">DSC TC ↓</option>
+      <option value="lesionwise_nsd_mean_tc">NSD TC ↓</option>
+      <option value="lesionwise_dsc_mean_wt">DSC WT ↓</option>
+      <option value="lesionwise_nsd_mean_wt">NSD WT ↓</option>
+      <option value="lesionwise_dsc_mean_rc">DSC RC ↓</option>
+      <option value="lesionwise_nsd_mean_rc">NSD RC ↓</option>
+      <option value="small_instance_f1_et">F1 Small ET ↓</option>
+      <option value="small_instance_f1_tc">F1 Small TC ↓</option>
+      <option value="small_instance_f1_wt">F1 Small WT ↓</option>
+      <option value="small_instance_f1_rc">F1 Small RC ↓</option>
+    </select>
+  </label>
+  <span id="count"></span>
+</div>
+
+<div class="table-wrap">
+<table id="lb-table">
+<thead>
+<tr>
+  <th class="col-header-group" colspan="4"></th>
+  <th class="col-header-group" colspan="2">ET</th>
+  <th class="col-header-group" colspan="2">TC</th>
+  <th class="col-header-group" colspan="2">WT</th>
+  <th class="col-header-group rc" colspan="2">RC</th>
+  <th class="col-header-group si" colspan="4">Small Instance F1</th>
+</tr>
+<tr>
+  <th data-col="rank">#</th>
+  <th data-col="team_name">Team</th>
+  <th data-col="submitted_ms">Date</th>
+  <th data-col="rank_sum" class="rank-sum-col sorted">Rank Sum ▲</th>
+  <th data-col="lesionwise_dsc_mean_et">DSC</th>
+  <th data-col="lesionwise_nsd_mean_et">NSD</th>
+  <th data-col="lesionwise_dsc_mean_tc">DSC</th>
+  <th data-col="lesionwise_nsd_mean_tc">NSD</th>
+  <th data-col="lesionwise_dsc_mean_wt">DSC</th>
+  <th data-col="lesionwise_nsd_mean_wt">NSD</th>
+  <th data-col="lesionwise_dsc_mean_rc" class="metric-group-rc">DSC</th>
+  <th data-col="lesionwise_nsd_mean_rc">NSD</th>
+  <th data-col="small_instance_f1_et" class="metric-group">ET</th>
+  <th data-col="small_instance_f1_tc">TC</th>
+  <th data-col="small_instance_f1_wt">WT</th>
+  <th data-col="small_instance_f1_rc">RC</th>
+</tr>
+</thead>
+<tbody id="lb-body"></tbody>
+</table>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#6366f122;border:1px solid #6366f1"></div> ET / TC / WT columns</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7c3aed22;border:1px solid #a78bfa"></div> RC (Resection Cavity — only ~26% of cases)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#10b98122;border:1px solid #10b981"></div> Small-instance F1 (&lt;27mm³ lesions)</div>
+  <div class="legend-item" style="margin-left:auto">
+    <a href="https://challenges.synapse.org/Challenges/DetailsPage/Task1?id=syn74274097#Results" target="_blank" style="color:var(--accent);text-decoration:none;font-size:0.8rem">→ Official Synapse page</a>
+  </div>
+</div>
+
+<script>
+let DATA = null;
+let sortCol = 'rank_sum';
+let sortAsc = true;
+
+const METRICS = [
+  'lesionwise_dsc_mean_et','lesionwise_nsd_mean_et',
+  'lesionwise_dsc_mean_tc','lesionwise_nsd_mean_tc',
+  'lesionwise_dsc_mean_wt','lesionwise_nsd_mean_wt',
+  'lesionwise_dsc_mean_rc','lesionwise_nsd_mean_rc',
+  'small_instance_f1_et','small_instance_f1_tc',
+  'small_instance_f1_wt','small_instance_f1_rc',
+];
+
+// Per-column max score (for bar widths)
+const colMax = {};
+
+function fmt(v, digits=4) {
+  if (v === null || v === undefined) return '<span class="null-val">—</span>';
+  return v.toFixed(digits);
+}
+
+function fmtDate(ms) {
+  if (!ms) return '—';
+  const d = new Date(ms);
+  return d.toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'});
+}
+
+function medal(rank) {
+  if (rank === 1) return `<span class="medal-1">🥇</span>`;
+  if (rank === 2) return `<span class="medal-2">🥈</span>`;
+  if (rank === 3) return `<span class="medal-3">🥉</span>`;
+  return `<span class="rank-num">${rank}</span>`;
+}
+
+function getVal(team, col) {
+  if (col === 'rank') return team.rank;
+  if (col === 'rank_sum') return team.rank_sum;
+  if (col === 'team_name') return team.team_name;
+  if (col === 'submitted_ms') return team.submitted_ms || 0;
+  return team.scores[col] ?? null;
+}
+
+function render() {
+  if (!DATA) return;
+  const q = document.getElementById('search').value.toLowerCase();
+  const sortMetric = document.getElementById('sort-metric').value;
+
+  let teams = DATA.teams.filter(t => t.team_name.toLowerCase().includes(q));
+
+  // Sort
+  const numericAsc = ['rank_sum'];
+  const textAsc = ['team_name'];
+  teams.sort((a, b) => {
+    let va = getVal(a, sortMetric), vb = getVal(b, sortMetric);
+    if (va === null) va = Infinity;
+    if (vb === null) vb = Infinity;
+    if (typeof va === 'string') return va.localeCompare(vb);
+    // rank_sum ascending (lower = better), metrics descending (higher = better)
+    if (sortMetric === 'rank_sum') return va - vb;
+    return vb - va;
+  });
+
+  document.getElementById('count').textContent = `Showing ${teams.length} of ${DATA.n_teams} teams`;
+
+  const tbody = document.getElementById('lb-body');
+  tbody.innerHTML = '';
+
+  teams.forEach((team, idx) => {
+    const displayRank = sortMetric === 'rank_sum' ? team.rank : (idx + 1);
+    const tr = document.createElement('tr');
+
+    let cells = `<td>${medal(displayRank)}</td>`;
+    cells += `<td title="Submission ${team.submission_id}">${team.team_name}</td>`;
+    cells += `<td>${fmtDate(team.submitted_ms)}</td>`;
+    cells += `<td class="rank-sum-col"><strong>${team.rank_sum.toFixed(1)}</strong></td>`;
+
+    METRICS.forEach(m => {
+      const v = team.scores[m];
+      const maxV = colMax[m] || 1;
+      const pct = v !== null ? Math.round((v / maxV) * 100) : 0;
+      const extra = m === 'lesionwise_dsc_mean_rc' ? ' class="metric-group-rc"' : (m === 'small_instance_f1_et' ? ' class="metric-group"' : '');
+      if (v !== null) {
+        cells += `<td${extra}><div class="score-cell"><div class="bar-bg" style="width:${pct}%"></div><span class="score-val">${v.toFixed(4)}</span></div></td>`;
+      } else {
+        cells += `<td${extra}><span class="null-val">—</span></td>`;
+      }
+    });
+
+    tr.innerHTML = cells;
+    tbody.appendChild(tr);
+  });
+}
+
+function computeColMax(teams) {
+  METRICS.forEach(m => {
+    colMax[m] = Math.max(...teams.map(t => t.scores[m] ?? 0));
+  });
+}
+
+// Load data
+fetch('data/ranked_results.json')
+  .then(r => r.json())
+  .then(d => {
+    DATA = d;
+    computeColMax(d.teams);
+    document.getElementById('fetched-at').textContent =
+      new Date(d.generated_at_ms).toLocaleString();
+    document.getElementById('n-subs').textContent = d.n_total_submissions;
+    document.getElementById('n-teams').textContent = d.n_teams;
+    render();
+  })
+  .catch(err => {
+    document.getElementById('lb-body').innerHTML =
+      `<tr><td colspan="16" style="padding:20px;color:#ef4444">Failed to load data/ranked_results.json: ${err.message}<br>Run: python3 fetch_and_rank.py</td></tr>`;
+  });
+</script>
+</body>
+</html>
