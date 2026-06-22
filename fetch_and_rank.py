@@ -24,6 +24,7 @@ that cover different metric sets (e.g. some teams don't predict RC).
 """
 
 import json
+import os
 import time
 import subprocess
 import sys
@@ -134,15 +135,28 @@ def fetch_submissions():
 
 # ── resolve team names ───────────────────────────────────────────────────────
 
-def resolve_team_names(submitter_ids):
+def resolve_team_names(submitter_ids, cache_path=None):
+    # Seed from the existing cache so known names survive even if the API is flaky.
     names = {}
-    for sid in submitter_ids:
+    if cache_path and os.path.exists(cache_path):
+        with open(cache_path) as f:
+            names = json.load(f)
+
+    # Only hit the API for IDs we don't already have a real name for.
+    missing = [sid for sid in submitter_ids if names.get(sid, "").startswith("Team_") or sid not in names]
+    for sid in missing:
         try:
             data = synapse_get(f"/team/{sid}")
-            names[sid] = data.get("name", f"Team_{sid}")
+            name = data.get("name", "").strip()
+            if name:
+                names[sid] = name
+            else:
+                names.setdefault(sid, f"Team_{sid}")
         except Exception:
-            names[sid] = f"Team_{sid}"
-    print(f"Resolved {len(names)} team names")
+            names.setdefault(sid, f"Team_{sid}")
+        time.sleep(0.15)  # stay well under Synapse's ~10 req/s unauthenticated limit
+
+    print(f"Resolved {len(names)} team names ({len(missing)} fetched from API)")
     return names
 
 
@@ -241,7 +255,6 @@ def compute_ranking(records, team_names):
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    import os
     out_dir = os.path.join(os.path.dirname(__file__), "data")
     os.makedirs(out_dir, exist_ok=True)
 
@@ -259,10 +272,11 @@ def main():
     records = [parse_row(r) for r in api_rows]
     print(f"Fetched {len(records)} submissions")
 
-    # 2. Resolve team names
+    # 2. Resolve team names (seeds from cache, only fetches new/unknown IDs)
     submitter_ids = sorted({r["submitterid"] for r in records})
-    team_names = resolve_team_names(submitter_ids)
-    with open(os.path.join(out_dir, "team_names.json"), "w") as f:
+    cache_path = os.path.join(out_dir, "team_names.json")
+    team_names = resolve_team_names(submitter_ids, cache_path=cache_path)
+    with open(cache_path, "w") as f:
         json.dump(team_names, f, indent=2)
 
     # 3. Rank
