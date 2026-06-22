@@ -1,5 +1,5 @@
 {
-  "generated_at_ms": 1782130484210,
+  "generated_at_ms": 1782130803517,
   "eval_id": "9619537",
   "table_id": "syn74508245",
   "n_total_submissions": 267,
@@ -22,7 +22,7 @@
     {
       "rank": 1,
       "team_id": "3588363",
-      "team_name": "bin_JLU",
+      "team_name": "Team_3588363",
       "rank_sum": 9.0,
       "n_metrics_scored": 9,
       "submission_id": "9768192",
@@ -133,7 +133,7 @@
     {
       "rank": 4,
       "team_id": "3589042",
-      "team_name": "Junho_zzang",
+      "team_name": "Team_3589042",
       "rank_sum": 72.0,
       "n_metrics_scored": 12,
       "submission_id": "9768422",
@@ -318,7 +318,7 @@
     {
       "rank": 9,
       "team_id": "3588018",
-      "team_name": "WIN_BRATS",
+      "team_name": "Team_3588018",
       "rank_sum": 111.0,
       "n_metrics_scored": 12,
       "submission_id": "9767838",
@@ -577,7 +577,7 @@
     {
       "rank": 16,
       "team_id": "3588221",
-      "team_name": "MicroBT",
+      "team_name": "Team_3588221",
       "rank_sum": 206.0,
       "n_metrics_scored": 12,
       "submission_id": "9767983",
@@ -1095,7 +1095,7 @@
     {
       "rank": 30,
       "team_id": "3590978",
-      "team_name": "Frankensteins-Monster",
+      "team_name": "Team_3590978",
       "rank_sum": 341.0,
       "n_metrics_scored": 12,
       "submission_id": "9767100",
