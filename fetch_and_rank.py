@@ -17,6 +17,10 @@ True DELPHI requires per-case metric arrays across all test cases so that
 The Synapse public API only exposes per-submission aggregate scores (means).
 We therefore implement the rank-sum step exactly, but skip the statistical
 tiering step (p-value matrix). The HTML page clearly labels this limitation.
+
+Best-submission selection uses rank-based selection (lowest mean rank across
+all scored metrics), not raw score means. This correctly handles submissions
+that cover different metric sets (e.g. some teams don't predict RC).
 """
 
 import json
@@ -48,8 +52,10 @@ RANKING_METRICS = [
     "small_instance_f1_rc",
 ]
 
-# Best-submission selection uses the same metrics as final ranking.
-# This keeps the per-team submission choice aligned with the leaderboard itself.
+# Best-submission selection: rank all submissions on each metric across ALL submissions,
+# then pick the sub with lowest mean rank (same method as final team ranking).
+# This avoids comparing raw score means across submissions that cover different metric sets
+# (e.g. a sub missing RC metrics would have an inflated score-mean vs one that scored 0 on RC).
 SELECTION_METRICS = list(RANKING_METRICS)
 
 SQL = (
@@ -145,20 +151,38 @@ def resolve_team_names(submitter_ids):
 def compute_ranking(records, team_names):
     """
     DELPHI-style rank-sum algorithm.
-    Step 1: keep best submission per team (highest mean on all ranking metrics).
-    Step 2: rank all teams on each metric separately (higher=better; NaN=not ranked, no penalty).
+    Step 1: keep best submission per team using rank-based selection:
+            rank ALL submissions (across all teams) on each metric, then pick
+            the submission per team with the lowest mean rank. This avoids
+            comparing raw score means across submissions that cover different
+            metric sets (e.g. a submission missing RC would have an inflated
+            mean score vs one that scored RC=0).
+    Step 2: rank the best submissions on each metric separately
+            (higher=better; NaN=not ranked, no penalty).
     Step 3: sum ranks per team → overall rank.
     Returns list of dicts sorted by rank_sum ascending.
     """
+    # Pre-compute per-metric ranks across ALL submissions (not just best-per-team)
+    sub_ranks = {rec["id"]: {} for rec in records}
+    for metric in SELECTION_METRICS:
+        valid = [(rec["id"], float(rec[metric])) for rec in records if rec.get(metric) is not None]
+        if not valid:
+            continue
+        ids, vals = zip(*valid)
+        ranks = rankdata_avg(list(vals))
+        for sid, r in zip(ids, ranks):
+            sub_ranks[sid][metric] = r
+
+    def selection_score(rec):
+        ranks = [sub_ranks[rec["id"]][m] for m in SELECTION_METRICS if m in sub_ranks[rec["id"]]]
+        return sum(ranks) / len(ranks) if ranks else float("inf")
+
     by_team = defaultdict(list)
     for rec in records:
         by_team[rec["submitterid"]].append(rec)
 
-    def selection_mean(rec):
-        vals = [float(rec[m]) for m in SELECTION_METRICS if rec.get(m) is not None]
-        return sum(vals) / len(vals) if vals else 0.0
-
-    best_by_team = {sid: max(recs, key=selection_mean) for sid, recs in by_team.items()}
+    # Best submission = lowest mean rank across all metrics it was scored on
+    best_by_team = {sid: min(recs, key=selection_score) for sid, recs in by_team.items()}
     teams = sorted(best_by_team.keys())
     N, M = len(teams), len(RANKING_METRICS)
 

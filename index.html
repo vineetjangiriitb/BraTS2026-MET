@@ -104,8 +104,10 @@
 <div class="notice">
   <strong>⚠ Ranking methodology — what is exact vs. approximated</strong>
   <ul>
-    <li><strong>Exact:</strong> Rank-sum over the 12 published metrics (8 lesionwise DSC/NSD for ET/TC/WT/RC + 4 small-instance F1). Higher score → better rank on each metric. Missing metrics are not penalised (not set to worst value), per the challenge rules. The best submission per team is selected by highest mean across the same 12 published ranking metrics used for the final leaderboard.</li>
-    <li><strong>Approximated / missing:</strong> The full DELPHI protocol requires <em>per-case</em> metric arrays to run 500,000 pairwise permutation tests and produce a statistical tiering (p-value upper-triangular matrix). The Synapse public API only exposes per-submission aggregate means. Statistical tiers and p-values therefore cannot be reproduced and are not shown. What you see is the rank ordering, which is the first step of DELPHI and is exact given the public data.</li>
+    <li><strong>Exact:</strong> Rank-sum over the 12 published metrics (8 lesionwise DSC/NSD for ET/TC/WT/RC + 4 small-instance F1). Higher score → better rank on each metric. Missing metrics are not penalised (not included in rank-sum), per the challenge rules.</li>
+    <li><strong>Best-submission selection:</strong> For teams with multiple submissions, we select the submission with the lowest mean rank across all scored metrics — ranked against all submissions globally. This correctly handles submissions that cover different metric sets (e.g. teams that don't predict RC).</li>
+    <li><strong>Approximated / missing:</strong> The full DELPHI protocol requires <em>per-case</em> metric arrays to run 500,000 pairwise permutation tests and produce a statistical tiering (p-value upper-triangular matrix). The Synapse public API only exposes per-submission aggregate means. Statistical tiers and p-values therefore cannot be reproduced and are not shown.</li>
+    <li><strong>RC note:</strong> Several teams share identical RC DSC/NSD scores — this reflects a Synapse scorer baseline applied to teams whose submissions had no RC predictions. It is a data artifact from the evaluation server, not a code error.</li>
     <li><strong>To reproduce exact tiers:</strong> obtain per-case CSV from the challenge organizers.</li>
   </ul>
 </div>
