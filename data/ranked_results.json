@@ -1,8 +1,8 @@
 {
-  "generated_at_ms": 1782131204791,
+  "generated_at_ms": 1782150011337,
   "eval_id": "9619537",
   "table_id": "syn74508245",
-  "n_total_submissions": 267,
+  "n_total_submissions": 268,
   "n_teams": 30,
   "ranking_metrics": [
     "lesionwise_dsc_mean_et",
@@ -1058,7 +1058,7 @@
     {
       "rank": 29,
       "team_id": "3590796",
-      "team_name": "Team_3590796",
+      "team_name": "Tumor Terminators",
       "rank_sum": 331.0,
       "n_metrics_scored": 12,
       "submission_id": "9768007",
