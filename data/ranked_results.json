@@ -1,8 +1,8 @@
 {
-  "generated_at_ms": 1782203707562,
+  "generated_at_ms": 1782216408016,
   "eval_id": "9619537",
   "table_id": "syn74508245",
-  "n_total_submissions": 279,
+  "n_total_submissions": 286,
   "n_teams": 31,
   "ranking_metrics": [
     "lesionwise_dsc_mean_et",
@@ -23,7 +23,7 @@
       "rank": 1,
       "team_id": "3588363",
       "team_name": "bin_JLU",
-      "rank_sum": 9.0,
+      "rank_sum": 11.0,
       "n_metrics_scored": 9,
       "submission_id": "9768192",
       "submitted_ms": 1781852084347,
@@ -42,7 +42,7 @@
         "small_instance_f1_rc": null
       },
       "metric_ranks": {
-        "lesionwise_dsc_mean_et": 1.0,
+        "lesionwise_dsc_mean_et": 3.0,
         "lesionwise_nsd_mean_et": 1.0,
         "lesionwise_dsc_mean_rc": null,
         "lesionwise_nsd_mean_rc": null,
@@ -60,44 +60,81 @@
       "rank": 2,
       "team_id": "3595169",
       "team_name": "buyk",
-      "rank_sum": 36.5,
+      "rank_sum": 37.0,
       "n_metrics_scored": 12,
-      "submission_id": "9768441",
-      "submitted_ms": 1782105816870,
+      "submission_id": "9768659",
+      "submitted_ms": 1782202666103,
       "scores": {
-        "lesionwise_dsc_mean_et": 0.7275898527642889,
-        "lesionwise_nsd_mean_et": 0.7948371474889944,
+        "lesionwise_dsc_mean_et": 0.7479835174233358,
+        "lesionwise_nsd_mean_et": 0.8121061369183812,
         "lesionwise_dsc_mean_rc": 0.6012792457249959,
         "lesionwise_nsd_mean_rc": 0.480329723617949,
-        "lesionwise_dsc_mean_tc": 0.750650005138402,
-        "lesionwise_nsd_mean_tc": 0.8041026327163894,
-        "lesionwise_dsc_mean_wt": 0.7179378299533787,
-        "lesionwise_nsd_mean_wt": 0.7344504413988582,
-        "small_instance_f1_et": 0.4961850468761211,
-        "small_instance_f1_tc": 0.5048519521739868,
-        "small_instance_f1_wt": 0.4057616807933807,
+        "lesionwise_dsc_mean_tc": 0.767887631215649,
+        "lesionwise_nsd_mean_tc": 0.8184105406267731,
+        "lesionwise_dsc_mean_wt": 0.7185522708505888,
+        "lesionwise_nsd_mean_wt": 0.7331569159855454,
+        "small_instance_f1_et": 0.5120012456023094,
+        "small_instance_f1_tc": 0.5168931543266649,
+        "small_instance_f1_wt": 0.4098130205267145,
         "small_instance_f1_rc": 0.1111111111111111
       },
       "metric_ranks": {
-        "lesionwise_dsc_mean_et": 2.0,
+        "lesionwise_dsc_mean_et": 1.0,
         "lesionwise_nsd_mean_et": 2.0,
-        "lesionwise_dsc_mean_rc": 5.5,
-        "lesionwise_nsd_mean_rc": 5.5,
+        "lesionwise_dsc_mean_rc": 6.0,
+        "lesionwise_nsd_mean_rc": 6.0,
         "lesionwise_dsc_mean_tc": 2.0,
         "lesionwise_nsd_mean_tc": 2.0,
-        "lesionwise_dsc_mean_wt": 2.0,
-        "lesionwise_nsd_mean_wt": 2.0,
-        "small_instance_f1_et": 3.0,
-        "small_instance_f1_tc": 3.0,
+        "lesionwise_dsc_mean_wt": 3.0,
+        "lesionwise_nsd_mean_wt": 3.0,
+        "small_instance_f1_et": 2.0,
+        "small_instance_f1_tc": 2.0,
         "small_instance_f1_wt": 2.0,
-        "small_instance_f1_rc": 5.5
+        "small_instance_f1_rc": 6.0
       }
     },
     {
       "rank": 3,
+      "team_id": "3595145",
+      "team_name": "DEEPNEURO-MET-HR",
+      "rank_sum": 42.0,
+      "n_metrics_scored": 12,
+      "submission_id": "9768660",
+      "submitted_ms": 1782203501514,
+      "scores": {
+        "lesionwise_dsc_mean_et": 0.7441904234583109,
+        "lesionwise_nsd_mean_et": 0.8091250330845159,
+        "lesionwise_dsc_mean_rc": 0.6012792457249959,
+        "lesionwise_nsd_mean_rc": 0.480329723617949,
+        "lesionwise_dsc_mean_tc": 0.7641190667389217,
+        "lesionwise_nsd_mean_tc": 0.815493808695015,
+        "lesionwise_dsc_mean_wt": 0.7205540436967336,
+        "lesionwise_nsd_mean_wt": 0.7362607955445691,
+        "small_instance_f1_et": 0.5070137852412955,
+        "small_instance_f1_tc": 0.5133290723434408,
+        "small_instance_f1_wt": 0.4094817553637379,
+        "small_instance_f1_rc": 0.1111111111111111
+      },
+      "metric_ranks": {
+        "lesionwise_dsc_mean_et": 2.0,
+        "lesionwise_nsd_mean_et": 3.0,
+        "lesionwise_dsc_mean_rc": 6.0,
+        "lesionwise_nsd_mean_rc": 6.0,
+        "lesionwise_dsc_mean_tc": 3.0,
+        "lesionwise_nsd_mean_tc": 3.0,
+        "lesionwise_dsc_mean_wt": 2.0,
+        "lesionwise_nsd_mean_wt": 2.0,
+        "small_instance_f1_et": 3.0,
+        "small_instance_f1_tc": 3.0,
+        "small_instance_f1_wt": 3.0,
+        "small_instance_f1_rc": 6.0
+      }
+    },
+    {
+      "rank": 4,
       "team_id": "3594706",
       "team_name": "DEEPNEURO-MET-KYH",
-      "rank_sum": 49.5,
+      "rank_sum": 59.0,
       "n_metrics_scored": 12,
       "submission_id": "9768653",
       "submitted_ms": 1782199976830,
@@ -116,25 +153,25 @@
         "small_instance_f1_rc": 0.1111111111111111
       },
       "metric_ranks": {
-        "lesionwise_dsc_mean_et": 4.0,
-        "lesionwise_nsd_mean_et": 4.0,
-        "lesionwise_dsc_mean_rc": 5.5,
-        "lesionwise_nsd_mean_rc": 5.5,
-        "lesionwise_dsc_mean_tc": 4.0,
-        "lesionwise_nsd_mean_tc": 3.0,
-        "lesionwise_dsc_mean_wt": 3.0,
-        "lesionwise_nsd_mean_wt": 3.0,
+        "lesionwise_dsc_mean_et": 5.0,
+        "lesionwise_nsd_mean_et": 5.0,
+        "lesionwise_dsc_mean_rc": 6.0,
+        "lesionwise_nsd_mean_rc": 6.0,
+        "lesionwise_dsc_mean_tc": 5.0,
+        "lesionwise_nsd_mean_tc": 4.0,
+        "lesionwise_dsc_mean_wt": 4.0,
+        "lesionwise_nsd_mean_wt": 4.0,
         "small_instance_f1_et": 5.0,
-        "small_instance_f1_tc": 4.0,
-        "small_instance_f1_wt": 3.0,
-        "small_instance_f1_rc": 5.5
+        "small_instance_f1_tc": 5.0,
+        "small_instance_f1_wt": 4.0,
+        "small_instance_f1_rc": 6.0
       }
     },
     {
-      "rank": 4,
+      "rank": 5,
       "team_id": "3595168",
       "team_name": "dhdhdhdhdh",
-      "rank_sum": 67.5,
+      "rank_sum": 68.5,
       "n_metrics_scored": 12,
       "submission_id": "9768643",
       "submitted_ms": 1782193655979,
@@ -154,7 +191,7 @@
       },
       "metric_ranks": {
         "lesionwise_dsc_mean_et": 6.0,
-        "lesionwise_nsd_mean_et": 5.0,
+        "lesionwise_nsd_mean_et": 6.0,
         "lesionwise_dsc_mean_rc": 3.0,
         "lesionwise_nsd_mean_rc": 3.0,
         "lesionwise_dsc_mean_tc": 6.0,
@@ -168,7 +205,7 @@
       }
     },
     {
-      "rank": 5,
+      "rank": 6,
       "team_id": "3589042",
       "team_name": "Junho_zzang",
       "rank_sum": 77.5,
@@ -202,43 +239,6 @@
         "small_instance_f1_tc": 6.0,
         "small_instance_f1_wt": 8.0,
         "small_instance_f1_rc": 2.5
-      }
-    },
-    {
-      "rank": 6,
-      "team_id": "3595145",
-      "team_name": "DEEPNEURO-MET-HR",
-      "rank_sum": 77.5,
-      "n_metrics_scored": 12,
-      "submission_id": "9768444",
-      "submitted_ms": 1782105972005,
-      "scores": {
-        "lesionwise_dsc_mean_et": 0.7150032792407505,
-        "lesionwise_nsd_mean_et": 0.7753932177199351,
-        "lesionwise_dsc_mean_rc": 0.5975818712026357,
-        "lesionwise_nsd_mean_rc": 0.4617518449921355,
-        "lesionwise_dsc_mean_tc": 0.7404298094943901,
-        "lesionwise_nsd_mean_tc": 0.7877435154636728,
-        "lesionwise_dsc_mean_wt": 0.7028806345760463,
-        "lesionwise_nsd_mean_wt": 0.7217115313244293,
-        "small_instance_f1_et": 0.495763675612572,
-        "small_instance_f1_tc": 0.5007471830264699,
-        "small_instance_f1_wt": 0.4022683462118765,
-        "small_instance_f1_rc": 0.0
-      },
-      "metric_ranks": {
-        "lesionwise_dsc_mean_et": 5.0,
-        "lesionwise_nsd_mean_et": 6.0,
-        "lesionwise_dsc_mean_rc": 7.0,
-        "lesionwise_nsd_mean_rc": 10.0,
-        "lesionwise_dsc_mean_tc": 5.0,
-        "lesionwise_nsd_mean_tc": 5.0,
-        "lesionwise_dsc_mean_wt": 4.0,
-        "lesionwise_nsd_mean_wt": 4.0,
-        "small_instance_f1_et": 4.0,
-        "small_instance_f1_tc": 5.0,
-        "small_instance_f1_wt": 4.0,
-        "small_instance_f1_rc": 18.5
       }
     },
     {
@@ -319,7 +319,7 @@
       "rank": 9,
       "team_id": "3588018",
       "team_name": "WIN_BRATS",
-      "rank_sum": 114.5,
+      "rank_sum": 120.0,
       "n_metrics_scored": 12,
       "submission_id": "9767838",
       "submitted_ms": 1781524463096,
@@ -341,22 +341,22 @@
         "lesionwise_dsc_mean_et": 11.0,
         "lesionwise_nsd_mean_et": 11.0,
         "lesionwise_dsc_mean_rc": 10.0,
-        "lesionwise_nsd_mean_rc": 7.0,
+        "lesionwise_nsd_mean_rc": 8.0,
         "lesionwise_dsc_mean_tc": 13.0,
         "lesionwise_nsd_mean_tc": 13.0,
         "lesionwise_dsc_mean_wt": 11.0,
         "lesionwise_nsd_mean_wt": 11.0,
-        "small_instance_f1_et": 2.0,
-        "small_instance_f1_tc": 2.0,
+        "small_instance_f1_et": 4.0,
+        "small_instance_f1_tc": 4.0,
         "small_instance_f1_wt": 5.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 10,
       "team_id": "3587408",
       "team_name": "MIA Lab",
-      "rank_sum": 128.5,
+      "rank_sum": 130.0,
       "n_metrics_scored": 12,
       "submission_id": "9767915",
       "submitted_ms": 1781608883642,
@@ -378,7 +378,7 @@
         "lesionwise_dsc_mean_et": 8.0,
         "lesionwise_nsd_mean_et": 9.0,
         "lesionwise_dsc_mean_rc": 9.0,
-        "lesionwise_nsd_mean_rc": 9.0,
+        "lesionwise_nsd_mean_rc": 10.0,
         "lesionwise_dsc_mean_tc": 8.0,
         "lesionwise_nsd_mean_tc": 12.0,
         "lesionwise_dsc_mean_wt": 12.0,
@@ -386,14 +386,14 @@
         "small_instance_f1_et": 10.0,
         "small_instance_f1_tc": 10.0,
         "small_instance_f1_wt": 11.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 11,
       "team_id": "3587647",
       "team_name": "Vision Lab",
-      "rank_sum": 132.5,
+      "rank_sum": 138.0,
       "n_metrics_scored": 12,
       "submission_id": "9768339",
       "submitted_ms": 1782013796579,
@@ -412,25 +412,25 @@
         "small_instance_f1_rc": 0.0
       },
       "metric_ranks": {
-        "lesionwise_dsc_mean_et": 3.0,
-        "lesionwise_nsd_mean_et": 3.0,
+        "lesionwise_dsc_mean_et": 4.0,
+        "lesionwise_nsd_mean_et": 4.0,
         "lesionwise_dsc_mean_rc": 8.0,
-        "lesionwise_nsd_mean_rc": 8.0,
-        "lesionwise_dsc_mean_tc": 3.0,
-        "lesionwise_nsd_mean_tc": 4.0,
+        "lesionwise_nsd_mean_rc": 9.0,
+        "lesionwise_dsc_mean_tc": 4.0,
+        "lesionwise_nsd_mean_tc": 5.0,
         "lesionwise_dsc_mean_wt": 5.0,
         "lesionwise_nsd_mean_wt": 5.0,
         "small_instance_f1_et": 25.0,
         "small_instance_f1_tc": 25.0,
         "small_instance_f1_wt": 25.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 12,
       "team_id": "3588125",
       "team_name": "buckeye",
-      "rank_sum": 148.5,
+      "rank_sum": 149.0,
       "n_metrics_scored": 12,
       "submission_id": "9768617",
       "submitted_ms": 1782182563533,
@@ -460,14 +460,14 @@
         "small_instance_f1_et": 12.0,
         "small_instance_f1_tc": 13.0,
         "small_instance_f1_wt": 13.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 13,
       "team_id": "3588372",
       "team_name": "Wangwangwang",
-      "rank_sum": 167.5,
+      "rank_sum": 168.0,
       "n_metrics_scored": 12,
       "submission_id": "9767619",
       "submitted_ms": 1781272322303,
@@ -497,14 +497,14 @@
         "small_instance_f1_et": 8.0,
         "small_instance_f1_tc": 9.0,
         "small_instance_f1_wt": 6.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 14,
       "team_id": "3591115",
       "team_name": "Bio-Intel Team",
-      "rank_sum": 196.5,
+      "rank_sum": 197.0,
       "n_metrics_scored": 12,
       "submission_id": "9768176",
       "submitted_ms": 1781844409877,
@@ -534,14 +534,14 @@
         "small_instance_f1_et": 20.0,
         "small_instance_f1_tc": 20.0,
         "small_instance_f1_wt": 20.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 15,
       "team_id": "3587864",
       "team_name": "TeamTiger_BraTS",
-      "rank_sum": 201.5,
+      "rank_sum": 202.0,
       "n_metrics_scored": 12,
       "submission_id": "9767068",
       "submitted_ms": 1780628623034,
@@ -571,14 +571,14 @@
         "small_instance_f1_et": 13.0,
         "small_instance_f1_tc": 12.0,
         "small_instance_f1_wt": 14.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 16,
       "team_id": "3588221",
       "team_name": "MicroBT",
-      "rank_sum": 206.5,
+      "rank_sum": 207.0,
       "n_metrics_scored": 12,
       "submission_id": "9767983",
       "submitted_ms": 1781673197240,
@@ -608,14 +608,14 @@
         "small_instance_f1_et": 11.0,
         "small_instance_f1_tc": 11.0,
         "small_instance_f1_wt": 10.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 17,
       "team_id": "3596399",
       "team_name": "Tejas_Brains",
-      "rank_sum": 208.5,
+      "rank_sum": 209.0,
       "n_metrics_scored": 12,
       "submission_id": "9767914",
       "submitted_ms": 1781608623920,
@@ -645,14 +645,14 @@
         "small_instance_f1_et": 16.0,
         "small_instance_f1_tc": 16.0,
         "small_instance_f1_wt": 17.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 18,
       "team_id": "3593170",
       "team_name": "Pancholi_Sid",
-      "rank_sum": 211.5,
+      "rank_sum": 212.0,
       "n_metrics_scored": 12,
       "submission_id": "9767810",
       "submitted_ms": 1781502625813,
@@ -682,14 +682,14 @@
         "small_instance_f1_et": 19.0,
         "small_instance_f1_tc": 19.0,
         "small_instance_f1_wt": 19.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 19,
       "team_id": "3592021",
       "team_name": "NeuroSeg HFA",
-      "rank_sum": 217.5,
+      "rank_sum": 218.0,
       "n_metrics_scored": 12,
       "submission_id": "9767657",
       "submitted_ms": 1781314288803,
@@ -719,14 +719,14 @@
         "small_instance_f1_et": 17.0,
         "small_instance_f1_tc": 17.0,
         "small_instance_f1_wt": 15.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 20,
       "team_id": "3588821",
       "team_name": "lindas",
-      "rank_sum": 223.5,
+      "rank_sum": 224.0,
       "n_metrics_scored": 12,
       "submission_id": "9767908",
       "submitted_ms": 1781597565644,
@@ -756,14 +756,14 @@
         "small_instance_f1_et": 22.0,
         "small_instance_f1_tc": 22.0,
         "small_instance_f1_wt": 23.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 21,
       "team_id": "3591870",
       "team_name": "TheRealBoys",
-      "rank_sum": 223.5,
+      "rank_sum": 224.0,
       "n_metrics_scored": 12,
       "submission_id": "9768198",
       "submitted_ms": 1781857422655,
@@ -793,14 +793,14 @@
         "small_instance_f1_et": 21.0,
         "small_instance_f1_tc": 21.0,
         "small_instance_f1_wt": 22.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 22,
       "team_id": "3590655",
       "team_name": "BraTS Uniandes",
-      "rank_sum": 240.5,
+      "rank_sum": 241.0,
       "n_metrics_scored": 12,
       "submission_id": "9768254",
       "submitted_ms": 1781918554837,
@@ -830,14 +830,14 @@
         "small_instance_f1_et": 15.0,
         "small_instance_f1_tc": 15.0,
         "small_instance_f1_wt": 16.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 23,
       "team_id": "3596363",
       "team_name": "Anki_brain",
-      "rank_sum": 241.5,
+      "rank_sum": 242.0,
       "n_metrics_scored": 12,
       "submission_id": "9767703",
       "submitted_ms": 1781354462243,
@@ -867,14 +867,14 @@
         "small_instance_f1_et": 18.0,
         "small_instance_f1_tc": 18.0,
         "small_instance_f1_wt": 18.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 24,
       "team_id": "3591425",
       "team_name": "SAMAI",
-      "rank_sum": 254.5,
+      "rank_sum": 255.0,
       "n_metrics_scored": 12,
       "submission_id": "9768259",
       "submitted_ms": 1781933100549,
@@ -904,14 +904,14 @@
         "small_instance_f1_et": 23.0,
         "small_instance_f1_tc": 24.0,
         "small_instance_f1_wt": 21.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 25,
       "team_id": "3591351",
       "team_name": "HMNUnet",
-      "rank_sum": 269.5,
+      "rank_sum": 270.0,
       "n_metrics_scored": 12,
       "submission_id": "9767667",
       "submitted_ms": 1781320741909,
@@ -941,14 +941,14 @@
         "small_instance_f1_et": 24.0,
         "small_instance_f1_tc": 23.0,
         "small_instance_f1_wt": 24.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 26,
       "team_id": "3594830",
       "team_name": "AU_brats_team",
-      "rank_sum": 302.5,
+      "rank_sum": 303.0,
       "n_metrics_scored": 12,
       "submission_id": "9768275",
       "submitted_ms": 1781944408316,
@@ -978,14 +978,14 @@
         "small_instance_f1_et": 27.0,
         "small_instance_f1_tc": 27.0,
         "small_instance_f1_wt": 28.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 27,
       "team_id": "3592951",
       "team_name": "Latent Minds",
-      "rank_sum": 315.5,
+      "rank_sum": 316.0,
       "n_metrics_scored": 12,
       "submission_id": "9768407",
       "submitted_ms": 1782074165449,
@@ -1015,14 +1015,14 @@
         "small_instance_f1_et": 26.0,
         "small_instance_f1_tc": 26.0,
         "small_instance_f1_wt": 26.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 28,
       "team_id": "3587577",
       "team_name": "IRE",
-      "rank_sum": 321.5,
+      "rank_sum": 322.0,
       "n_metrics_scored": 12,
       "submission_id": "9768159",
       "submitted_ms": 1781830296885,
@@ -1052,14 +1052,14 @@
         "small_instance_f1_et": 28.0,
         "small_instance_f1_tc": 28.0,
         "small_instance_f1_wt": 27.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 29,
       "team_id": "3590796",
       "team_name": "Tumor Terminators",
-      "rank_sum": 334.5,
+      "rank_sum": 335.0,
       "n_metrics_scored": 12,
       "submission_id": "9768007",
       "submitted_ms": 1781702558279,
@@ -1089,14 +1089,14 @@
         "small_instance_f1_et": 29.0,
         "small_instance_f1_tc": 29.0,
         "small_instance_f1_wt": 29.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 30,
       "team_id": "3590978",
       "team_name": "Frankensteins-Monster",
-      "rank_sum": 345.5,
+      "rank_sum": 346.0,
       "n_metrics_scored": 12,
       "submission_id": "9767100",
       "submitted_ms": 1780668679915,
@@ -1126,14 +1126,14 @@
         "small_instance_f1_et": 31.0,
         "small_instance_f1_tc": 31.0,
         "small_instance_f1_wt": 31.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     },
     {
       "rank": 31,
       "team_id": "3596611",
       "team_name": "MingJL",
-      "rank_sum": 348.5,
+      "rank_sum": 349.0,
       "n_metrics_scored": 12,
       "submission_id": "9768631",
       "submitted_ms": 1782189393885,
@@ -1163,7 +1163,7 @@
         "small_instance_f1_et": 30.0,
         "small_instance_f1_tc": 30.0,
         "small_instance_f1_wt": 30.0,
-        "small_instance_f1_rc": 18.5
+        "small_instance_f1_rc": 19.0
       }
     }
   ]
