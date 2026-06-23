@@ -145,6 +145,40 @@
       ],
       "rows": [
         {
+          "rowId": 9768676,
+          "versionNumber": 131,
+          "benefactorId": 9619537,
+          "values": [
+            "9768676",
+            "1782218543771",
+            "3588125",
+            "0.6655752660277529",
+            "0.7253578756246444",
+            "0.3009887846860838",
+            "0.2241389646267642",
+            "0.6926542146862941",
+            "0.7386466997981943",
+            "0.6537647977301523",
+            "0.6773273076050415",
+            "2",
+            "4.72",
+            "1.586666666666667",
+            "0.4257903512798653",
+            "2.0135135135135136",
+            "4.675675675675675",
+            "1.4594594594594594",
+            "0.4272308706324051",
+            "1.5657894736842106",
+            "4.4605263157894735",
+            "1.381578947368421",
+            "0.3333974817412109",
+            "0",
+            "1.1666666666666667",
+            "1.6666666666666667",
+            "0"
+          ]
+        },
+        {
           "rowId": 9768667,
           "versionNumber": 163,
           "benefactorId": 9619537,
@@ -9871,7 +9905,7 @@
       ]
     }
   },
-  "queryCount": 286,
+  "queryCount": 287,
   "selectColumns": [
     {
       "name": "id",
@@ -10258,7 +10292,7 @@
       "facetValues": [
         {
           "value": "9619537",
-          "count": 286,
+          "count": 287,
           "isSelected": false
         }
       ]
@@ -10279,13 +10313,13 @@
           "isSelected": false
         },
         {
-          "value": "3593170",
+          "value": "3588125",
           "count": 21,
           "isSelected": false
         },
         {
-          "value": "3588125",
-          "count": 20,
+          "value": "3593170",
+          "count": 21,
           "isSelected": false
         },
         {
@@ -10432,7 +10466,7 @@
       "facetValues": [
         {
           "value": "ACCEPTED",
-          "count": 286,
+          "count": 287,
           "isSelected": false
         }
       ]
@@ -10444,7 +10478,7 @@
       "facetValues": [
         {
           "value": "SCORED",
-          "count": 286,
+          "count": 287,
           "isSelected": false
         }
       ]
@@ -10454,6 +10488,6 @@
     "sumFileSizesBytes": 0,
     "greaterThan": false
   },
-  "lastUpdatedOn": "2026-06-23T10:56:21.258Z",
+  "lastUpdatedOn": "2026-06-23T15:41:45.238Z",
   "combinedSql": "SELECT id, createdOn, submitterid, lesionwise_dsc_mean_et, lesionwise_nsd_mean_et, lesionwise_dsc_mean_rc, lesionwise_nsd_mean_rc, lesionwise_dsc_mean_tc, lesionwise_nsd_mean_tc, lesionwise_dsc_mean_wt, lesionwise_nsd_mean_wt, small_instance_tp_et, small_instance_fn_et, small_instance_fp_et, small_instance_f1_et, small_instance_tp_tc, small_instance_fn_tc, small_instance_fp_tc, small_instance_f1_tc, small_instance_tp_wt, small_instance_fn_wt, small_instance_fp_wt, small_instance_f1_wt, small_instance_tp_rc, small_instance_fn_rc, small_instance_fp_rc, small_instance_f1_rc FROM syn74508245 WHERE evaluationid = 9619537 AND status = 'ACCEPTED' AND submission_status = 'SCORED' ORDER BY createdOn DESC LIMIT 2000 OFFSET 0"
 }
