@@ -1,8 +1,8 @@
 {
-  "generated_at_ms": 1782307299869,
+  "generated_at_ms": 1782318065496,
   "eval_id": "9619537",
   "table_id": "syn74508245",
-  "n_total_submissions": 300,
+  "n_total_submissions": 301,
   "n_teams": 31,
   "ranking_metrics": [
     "lesionwise_dsc_mean_et",
