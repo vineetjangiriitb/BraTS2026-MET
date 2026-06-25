@@ -145,6 +145,74 @@
       ],
       "rows": [
         {
+          "rowId": 9768942,
+          "versionNumber": 171,
+          "benefactorId": 9619537,
+          "values": [
+            "9768942",
+            "1782421402052",
+            "3588125",
+            "0.6462528389596466",
+            "0.7040901305154309",
+            "0.5157853534294667",
+            "0.4195354022401064",
+            "0.3126282919782437",
+            "0.3440908592441384",
+            "0.6543652136900642",
+            "0.6763788169632459",
+            "2.2",
+            "4.52",
+            "4.44",
+            "0.434676721300971",
+            "2.256756756756757",
+            "4.4324324324324325",
+            "175.43243243243242",
+            "0.2842638046716101",
+            "1.7894736842105263",
+            "4.2368421052631575",
+            "2.789473684210526",
+            "0.3749277773364008",
+            "0",
+            "1.1666666666666667",
+            "0.6666666666666666",
+            "0"
+          ]
+        },
+        {
+          "rowId": 9768941,
+          "versionNumber": 171,
+          "benefactorId": 9619537,
+          "values": [
+            "9768941",
+            "1782419076000",
+            "3588125",
+            "0.6909168441468336",
+            "0.7543813530167858",
+            "0.4841662522556733",
+            "0.4015731328472846",
+            "0.7178484597205296",
+            "0.7709776626043751",
+            "0.6859646459696893",
+            "0.7150996865644698",
+            "2.1333333333333333",
+            "4.586666666666667",
+            "1.7733333333333334",
+            "0.4402949300912656",
+            "2.135135135135135",
+            "4.554054054054054",
+            "1.662162162162162",
+            "0.4435090088431327",
+            "1.631578947368421",
+            "4.394736842105263",
+            "1.605263157894737",
+            "0.3494678256152285",
+            "0",
+            "1.1666666666666667",
+            "0",
+            "0"
+          ]
+        },
+        {
           "rowId": 9768934,
           "versionNumber": 135,
           "benefactorId": 9619537,
@@ -10925,7 +10993,7 @@
       ]
     }
   },
-  "queryCount": 317,
+  "queryCount": 319,
   "selectColumns": [
     {
       "name": "id",
@@ -11312,7 +11380,7 @@
       "facetValues": [
         {
           "value": "9619537",
-          "count": 317,
+          "count": 319,
           "isSelected": false
         }
       ]
@@ -11333,12 +11401,12 @@
           "isSelected": false
         },
         {
-          "value": "3587647",
-          "count": 23,
+          "value": "3588125",
+          "count": 25,
           "isSelected": false
         },
         {
-          "value": "3588125",
+          "value": "3587647",
           "count": 23,
           "isSelected": false
         },
@@ -11491,7 +11559,7 @@
       "facetValues": [
         {
           "value": "ACCEPTED",
-          "count": 317,
+          "count": 319,
           "isSelected": false
         }
       ]
@@ -11503,7 +11571,7 @@
       "facetValues": [
         {
           "value": "SCORED",
-          "count": 317,
+          "count": 319,
           "isSelected": false
         }
       ]
@@ -11513,6 +11581,6 @@
     "sumFileSizesBytes": 0,
     "greaterThan": false
   },
-  "lastUpdatedOn": "2026-06-25T20:52:47.993Z",
+  "lastUpdatedOn": "2026-06-25T21:56:17.443Z",
   "combinedSql": "SELECT id, createdOn, submitterid, lesionwise_dsc_mean_et, lesionwise_nsd_mean_et, lesionwise_dsc_mean_rc, lesionwise_nsd_mean_rc, lesionwise_dsc_mean_tc, lesionwise_nsd_mean_tc, lesionwise_dsc_mean_wt, lesionwise_nsd_mean_wt, small_instance_tp_et, small_instance_fn_et, small_instance_fp_et, small_instance_f1_et, small_instance_tp_tc, small_instance_fn_tc, small_instance_fp_tc, small_instance_f1_tc, small_instance_tp_wt, small_instance_fn_wt, small_instance_fp_wt, small_instance_f1_wt, small_instance_tp_rc, small_instance_fn_rc, small_instance_fp_rc, small_instance_f1_rc FROM syn74508245 WHERE evaluationid = 9619537 AND status = 'ACCEPTED' AND submission_status = 'SCORED' ORDER BY createdOn DESC LIMIT 2000 OFFSET 0"
 }
