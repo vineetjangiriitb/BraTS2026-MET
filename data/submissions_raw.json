@@ -145,6 +145,74 @@
       ],
       "rows": [
         {
+          "rowId": 9768885,
+          "versionNumber": 127,
+          "benefactorId": 9619537,
+          "values": [
+            "9768885",
+            "1782360162868",
+            "3591115",
+            "0.6602496595293142",
+            "0.7201526947795504",
+            "0.4570740136209176",
+            "0.39087198906449",
+            "0.6806251868823725",
+            "0.7259636315051219",
+            "0.6377863360806199",
+            "0.6556752421220646",
+            "1.84",
+            "4.8533333333333335",
+            "1.36",
+            "0.432175596647583",
+            "1.8513513513513515",
+            "4.8108108108108105",
+            "1.2702702702702702",
+            "0.435142479539763",
+            "1.4078947368421053",
+            "4.592105263157895",
+            "1.486842105263158",
+            "0.329303605591933",
+            "0",
+            "1",
+            "1.2857142857142858",
+            "0"
+          ]
+        },
+        {
+          "rowId": 9768870,
+          "versionNumber": 151,
+          "benefactorId": 9619537,
+          "values": [
+            "9768870",
+            "1782349075259",
+            "3589042",
+            "0.7499526952581613",
+            "0.8148553142566869",
+            "0.6012792457249959",
+            "0.480329723617949",
+            "0.7698448576303355",
+            "0.8211578603265763",
+            "0.7213852461441843",
+            "0.736819520031432",
+            "2.4",
+            "4.32",
+            "0.48",
+            "0.5072127151363596",
+            "2.4324324324324325",
+            "4.256756756756757",
+            "0.5135135135135135",
+            "0.5120399139895536",
+            "1.855263157894737",
+            "4.171052631578948",
+            "0.7105263157894737",
+            "0.4076200380705742",
+            "0.1666666666666666",
+            "1",
+            "0.3333333333333333",
+            "0.1111111111111111"
+          ]
+        },
+        {
           "rowId": 9768827,
           "versionNumber": 137,
           "benefactorId": 9619537,
@@ -10517,7 +10585,7 @@
       ]
     }
   },
-  "queryCount": 305,
+  "queryCount": 307,
   "selectColumns": [
     {
       "name": "id",
@@ -10904,7 +10972,7 @@
       "facetValues": [
         {
           "value": "9619537",
-          "count": 305,
+          "count": 307,
           "isSelected": false
         }
       ]
@@ -10921,7 +10989,7 @@
         },
         {
           "value": "3589042",
-          "count": 26,
+          "count": 27,
           "isSelected": false
         },
         {
@@ -10961,7 +11029,7 @@
         },
         {
           "value": "3591115",
-          "count": 11,
+          "count": 12,
           "isSelected": false
         },
         {
@@ -11083,7 +11151,7 @@
       "facetValues": [
         {
           "value": "ACCEPTED",
-          "count": 305,
+          "count": 307,
           "isSelected": false
         }
       ]
@@ -11095,7 +11163,7 @@
       "facetValues": [
         {
           "value": "SCORED",
-          "count": 305,
+          "count": 307,
           "isSelected": false
         }
       ]
@@ -11105,6 +11173,6 @@
     "sumFileSizesBytes": 0,
     "greaterThan": false
   },
-  "lastUpdatedOn": "2026-06-24T21:55:37.325Z",
+  "lastUpdatedOn": "2026-06-25T04:37:23.123Z",
   "combinedSql": "SELECT id, createdOn, submitterid, lesionwise_dsc_mean_et, lesionwise_nsd_mean_et, lesionwise_dsc_mean_rc, lesionwise_nsd_mean_rc, lesionwise_dsc_mean_tc, lesionwise_nsd_mean_tc, lesionwise_dsc_mean_wt, lesionwise_nsd_mean_wt, small_instance_tp_et, small_instance_fn_et, small_instance_fp_et, small_instance_f1_et, small_instance_tp_tc, small_instance_fn_tc, small_instance_fp_tc, small_instance_f1_tc, small_instance_tp_wt, small_instance_fn_wt, small_instance_fp_wt, small_instance_f1_wt, small_instance_tp_rc, small_instance_fn_rc, small_instance_fp_rc, small_instance_f1_rc FROM syn74508245 WHERE evaluationid = 9619537 AND status = 'ACCEPTED' AND submission_status = 'SCORED' ORDER BY createdOn DESC LIMIT 2000 OFFSET 0"
 }
