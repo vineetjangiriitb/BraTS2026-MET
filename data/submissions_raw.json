@@ -145,6 +145,74 @@
       ],
       "rows": [
         {
+          "rowId": 9769166,
+          "versionNumber": 130,
+          "benefactorId": 9619537,
+          "values": [
+            "9769166",
+            "1782621407973",
+            "3588125",
+            "0.6496498908389456",
+            "0.7062985502940505",
+            "0.5073968607139697",
+            "0.420006636204677",
+            "0.3831631652051928",
+            "0.4192972608401021",
+            "0.6430915732342815",
+            "0.6673893961590263",
+            "2.333333333333333",
+            "4.386666666666667",
+            "5.12",
+            "0.4516201843947641",
+            "2.391891891891892",
+            "4.297297297297297",
+            "101.0945945945946",
+            "0.308761320969535",
+            "1.894736842105263",
+            "4.131578947368421",
+            "4.7368421052631575",
+            "0.3724644941875628",
+            "0",
+            "1.1666666666666667",
+            "0.8333333333333334",
+            "0"
+          ]
+        },
+        {
+          "rowId": 9769164,
+          "versionNumber": 130,
+          "benefactorId": 9619537,
+          "values": [
+            "9769164",
+            "1782618482418",
+            "3588125",
+            "0.6906004940059471",
+            "0.750513485994498",
+            "0.5253873002143856",
+            "0.4420902167569568",
+            "0.7180916133277353",
+            "0.7664522220882511",
+            "0.6786534659786256",
+            "0.7032438608325321",
+            "2.546666666666667",
+            "4.173333333333333",
+            "2.08",
+            "0.4763634444109408",
+            "2.5675675675675675",
+            "4.121621621621622",
+            "1.9594594594594597",
+            "0.4816639371174807",
+            "1.973684210526316",
+            "4.052631578947368",
+            "1.894736842105263",
+            "0.3796093515158014",
+            "0",
+            "1.1666666666666667",
+            "0",
+            "0"
+          ]
+        },
+        {
           "rowId": 9769148,
           "versionNumber": 125,
           "benefactorId": 9619537,
@@ -11605,7 +11673,7 @@
       ]
     }
   },
-  "queryCount": 337,
+  "queryCount": 339,
   "selectColumns": [
     {
       "name": "id",
@@ -11992,7 +12060,7 @@
       "facetValues": [
         {
           "value": "9619537",
-          "count": 337,
+          "count": 339,
           "isSelected": false
         }
       ]
@@ -12008,13 +12076,13 @@
           "isSelected": false
         },
         {
-          "value": "3589042",
-          "count": 27,
+          "value": "3588125",
+          "count": 28,
           "isSelected": false
         },
         {
-          "value": "3588125",
-          "count": 26,
+          "value": "3589042",
+          "count": 27,
           "isSelected": false
         },
         {
@@ -12181,7 +12249,7 @@
       "facetValues": [
         {
           "value": "ACCEPTED",
-          "count": 337,
+          "count": 339,
           "isSelected": false
         }
       ]
@@ -12193,7 +12261,7 @@
       "facetValues": [
         {
           "value": "SCORED",
-          "count": 337,
+          "count": 339,
           "isSelected": false
         }
       ]
@@ -12203,6 +12271,6 @@
     "sumFileSizesBytes": 0,
     "greaterThan": false
   },
-  "lastUpdatedOn": "2026-06-28T03:21:25.986Z",
+  "lastUpdatedOn": "2026-06-28T07:09:26.044Z",
   "combinedSql": "SELECT id, createdOn, submitterid, lesionwise_dsc_mean_et, lesionwise_nsd_mean_et, lesionwise_dsc_mean_rc, lesionwise_nsd_mean_rc, lesionwise_dsc_mean_tc, lesionwise_nsd_mean_tc, lesionwise_dsc_mean_wt, lesionwise_nsd_mean_wt, small_instance_tp_et, small_instance_fn_et, small_instance_fp_et, small_instance_f1_et, small_instance_tp_tc, small_instance_fn_tc, small_instance_fp_tc, small_instance_f1_tc, small_instance_tp_wt, small_instance_fn_wt, small_instance_fp_wt, small_instance_f1_wt, small_instance_tp_rc, small_instance_fn_rc, small_instance_fp_rc, small_instance_f1_rc FROM syn74508245 WHERE evaluationid = 9619537 AND status = 'ACCEPTED' AND submission_status = 'SCORED' ORDER BY createdOn DESC LIMIT 2000 OFFSET 0"
 }
